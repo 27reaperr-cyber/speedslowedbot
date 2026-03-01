@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN}
+      TEMP_DIR: /tmp/audio_bot
+      MAX_FILE_SIZE_MB: 50
+      PROCESSING_TIMEOUT_SEC: 120
+    volumes:
+      # Монтируем temp директорию для лёгкого доступа/отладки
+      - audio_temp:/tmp/audio_bot
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  audio_temp:

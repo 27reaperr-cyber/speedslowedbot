@@ -1,0 +1,9 @@
+# Telegram Bot Framework
+aiogram==3.13.1
+
+# Async HTTP client (используется aiogram)
+aiohttp==3.10.10
+aiofiles==24.1.0
+
+# Env variables (опционально — если используете .env файл)
+python-dotenv==1.0.1
