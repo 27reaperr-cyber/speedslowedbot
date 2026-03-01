@@ -14,6 +14,13 @@ main.py — Точка входа бота.
 import asyncio
 import logging
 import sys
+from pathlib import Path
+
+# Гарантируем, что корень проекта идёт первым в sys.path.
+# Это предотвращает конфликт с любым установленным пакетом "bot".
+_root = str(Path(__file__).parent.resolve())
+if _root not in sys.path:
+    sys.path.insert(0, _root)
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
